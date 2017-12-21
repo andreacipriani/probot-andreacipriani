@@ -1,10 +1,9 @@
 module.exports = (robot) => {
   // Your code here
-  console.log('Yay, the app was loaded!')
+  console.log('probot-andreacipriani has started listening')
 
-  // For more information on building apps:
-  // https://probot.github.io/docs/
-
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
+  robot.on('issues.opened', async context => {
+    console.log('new issue was openend with' + context.payload)
+    context.log(context.payload)
+  })
 }
