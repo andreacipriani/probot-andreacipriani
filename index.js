@@ -4,10 +4,12 @@
  */
 
 module.exports = app => {
-  app.log('Yay, the app was loaded!')
+  app.log('probot-andreacipriani is running!')
 
-  app.on('issues.opened', async context => {
-    const issueComment = context.issue({ body: 'Thanks for opening this issue!' })
-    return context.github.issues.createComment(issueComment)
+  app.on('pullrequest.synchronized', async context => {
+    const prNumber = context.payload.number
+    app.log('PR synchronized with number ${prNumber}')
+
+//    context.github.pulls.listFiles
   })
 }
