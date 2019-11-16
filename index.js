@@ -1,9 +1,17 @@
-module.exports = (robot) => {
-  // Your code here
-  console.log('probot-andreacipriani has started listening')
+/**
+ * This is the main entrypoint to your Probot app
+ * @param {import('probot').Application} app
+ */
 
-  robot.on('issues.opened', async context => {
-    console.log('new issue was openend with' + context.payload)
-    context.log(context.payload)
+module.exports = app => {
+  app.log('probot-andreacipriani is running!')
+
+  app.on('push', async context => {
+    context.log(context)
   })
+
+  // app.on('*', async context => {
+  //   context.log({ event: context.event, action: context.payload.action })
+  // })
+
 }
