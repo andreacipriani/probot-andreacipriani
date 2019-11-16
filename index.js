@@ -6,7 +6,7 @@
 module.exports = app => {
   app.log('probot-andreacipriani is running!')
 
-  app.on('pullrequest.synchronized', async context => {
+  app.on('push', async context => {
     const prNumber = context.payload.number
     app.log('PR synchronized with number ${prNumber}')
 
